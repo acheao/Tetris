@@ -1,2 +1,3 @@
 # Tetris  
-俄罗斯方块，用html和js实现。打包成H5 APP或者electron桌面应用。
+使用html5编写的俄罗斯方块，将打包成H5 APP或者用electron打包成桌面应用。
+前期将先完成逻辑，后期可能会调整css以及兼容各种尺寸的屏幕大小。
