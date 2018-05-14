@@ -42,3 +42,11 @@ ctx.fillRect(10,10,20,20);
 ctx.fillRect(50,10,20,20);
 ctx.fillRect(90,10,20,20);
 ctx.fillRect(50,50,20,20);
+
+function coordinate(x,y) {
+    var coordinate = new Object;
+    coordinate.x=x;
+    coordinate.y=y;
+    return coordinate;
+}
+var tes = coordinate(1,2);
