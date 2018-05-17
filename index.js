@@ -4,6 +4,8 @@ c.height = 600;
 c.width = 400;
 $("#tetris").width();
 $("#tetris").height();
+
+//drawing background
 canvas.fillStyle="#BFBFBF";
 for(var x=0;x<10;x++){
     for(var y=0;y<15;y++){
@@ -23,32 +25,15 @@ for(var x2=0;x2<10;x2++){
         canvas.fillRect(x2*40+10,y2*40+10,20,20);
     }
 }
-canvas.fillStyle="#4F4F4F";
-canvas.fillRect(0,0,40,40);
-canvas.fillRect(40,40,40,40);
-canvas.fillRect(40,0,40,40);
-canvas.fillRect(80,0,40,40);
 
-canvas.fillStyle="#FFFFFF";
-canvas.fillRect(5,5,30,30);
-canvas.fillRect(45,5,30,30);
-canvas.fillRect(85,5,30,30);
-canvas.fillRect(45,45,30,30);
-
-
-canvas.fillStyle="#4F4F4F";
-canvas.fillRect(10,10,20,20);
-canvas.fillRect(50,10,20,20);
-canvas.fillRect(90,10,20,20);
-canvas.fillRect(50,50,20,20);
-
+//create coordinate
 function coordinate(x,y) {
     var coordinate = new Object;
     coordinate.x=x;
     coordinate.y=y;
     return coordinate;
 }
-var tes = coordinate(6,7);
+
 //画黑色的方块drawing black Rect
 function drawingBlackRect(point) {
     canvas.fillStyle="#4F4F4F";
@@ -69,7 +54,7 @@ function drawingGreyRect(point) {
     canvas.fillRect(point.x*40+10,point.y*40+10,20,20);
 
 }
-//以点A坐标为中心，顺时针转90度，返回该坐标
+//以点origin坐标为中心，顺时针转90度，返回该坐标 take origin as the origin of coordinate,rotate 90 degrees clockwise
 function rotate(origin,point) {
     var pointC = coordinate(point.x-origin.x,point.y-origin.y);
     var pointD = coordinate(-pointC.y,pointC.x);
@@ -77,21 +62,12 @@ function rotate(origin,point) {
      return returnPoint;
 }
 
-drawingGreyRect(tes);
-drawingBlackRect(tes);
-
-
-
-var testA = coordinate(5,10);
-var testB = coordinate(6,10);
-drawingBlackRect(testA);
-drawingBlackRect(testB);
-//画图形
+//画图形 drawing shape
 var zShape = new Array();
-var one = coordinate(5,0);
-var two = coordinate(6,0);
-var three = coordinate(7,0);
-var four = coordinate(6,1);
+var one = coordinate(3,0);
+var two = coordinate(4,0);
+var three = coordinate(5,0);
+var four = coordinate(4,1);
 zShape.push(one);
 zShape.push(two);
 zShape.push(three);
@@ -101,7 +77,7 @@ for(var i=0;i<zShape.length;i++){
     drawingBlackRect(zShape[i]);
 }
 
-
+//以orging为原点，将shape顺时针旋转90度 take origin as origin of coordinate.rotate 90 degrees clockwise
 function rotateShape(shape,origin) {
     var shapeChange = new Array();
 
@@ -117,7 +93,7 @@ function rotateShape(shape,origin) {
 }
 
 $("#tst").click(function () {
-    zShape = rotateShape(zShape,four);
+    zShape = rotateShape(zShape,two);
 
 });
-
+//Anti-clockwise逆时针
