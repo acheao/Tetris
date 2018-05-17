@@ -6,11 +6,11 @@ $("#tetris").width();
 $("#tetris").height();
 drawingBackgroud();
 
+var blackRectArea = new Array();
+var moveRectArea = new Array();
+
 $("#tst").click(function () {
     zShape = rotateShape(two,zShape);
-    var fdf = retateAntiClockWise(test,tes1);
-    drawingBlackRect(fdf);
-
 });
 
 //画图形 drawing shape
@@ -27,3 +27,5 @@ zShape.push(four);
 for(var i=0;i<zShape.length;i++){
     drawingBlackRect(zShape[i]);
 }
+
+

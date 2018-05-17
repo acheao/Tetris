@@ -1,22 +1,27 @@
+var horizontalNum = 10;
+var verticalNum = 15;
+
+
+
 // 画背景图
 // drawing background
 function drawingBackgroud() {
     canvas.fillStyle="#BFBFBF";
-    for(var x=0;x<10;x++){
-        for(var y=0;y<15;y++){
+    for(var x=0;x<horizontalNum;x++){
+        for(var y=0;y<verticalNum;y++){
             canvas.fillRect(x*40,40*y,40,40);
 
         }
     }
     canvas.fillStyle="#FFFFFF";
-    for(var x1=0;x1<10;x1++){
-        for(var y1=0;y1<15;y1++){
+    for(var x1=0;x1<horizontalNum;x1++){
+        for(var y1=0;y1<verticalNum;y1++){
             canvas.fillRect(x1*40+5,y1*40+5,30,30);
         }
     }
     canvas.fillStyle="#BFBFBF";
-    for(var x2=0;x2<10;x2++){
-        for(var y2=0;y2<15;y2++){
+    for(var x2=0;x2<horizontalNum;x2++){
+        for(var y2=0;y2<verticalNum;y2++){
             canvas.fillRect(x2*40+10,y2*40+10,20,20);
         }
     }
@@ -105,3 +110,31 @@ function rotateShapeAnticlockWise(origin,shape) {
     }
     return shapeChange;
 }
+
+// 越界图形数组判断
+// cross the border judge
+function judgeBorder(shape) {
+    var returnFlag = false;
+    for(var i in shape){
+        if(shape[i].x<0 || shape[i].x>=horizontalNum || shape[i].y<0 || shape[i]>=verticalNum){
+            returnFlag = true;
+        }
+    }
+    return returnFlag;
+}
+
+// 重叠判断
+// shape overlap judge
+function judgeOverlap(moveRectArea,blackRectArea) {
+    debugger;
+    var flag = false;
+    for(var i in moveRectArea){
+        for(var j in blackRectArea){
+            if(moveRectArea[i].x == blackRectArea[j].x && moveRectArea[i].y == blackRectArea[j].y){
+                flag = true;
+            }
+        }
+    }
+    return flag;
+}
+
