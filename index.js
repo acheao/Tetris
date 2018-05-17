@@ -70,10 +70,10 @@ function drawingGreyRect(point) {
 
 }
 //以点A坐标为中心，顺时针转90度，返回该坐标
-function rotate(A,B) {
-    var pointC = coordinate(B.x-A.x,B.y-A.y);
+function rotate(origin,point) {
+    var pointC = coordinate(point.x-origin.x,point.y-origin.y);
     var pointD = coordinate(-pointC.y,pointC.x);
-    var returnPoint = coordinate(pointD.x+A.x,pointD.y+A.y);
+    var returnPoint = coordinate(pointD.x+origin.x,pointD.y+origin.y);
      return returnPoint;
 }
 
@@ -86,3 +86,38 @@ var testA = coordinate(5,10);
 var testB = coordinate(6,10);
 drawingBlackRect(testA);
 drawingBlackRect(testB);
+//画图形
+var zShape = new Array();
+var one = coordinate(5,0);
+var two = coordinate(6,0);
+var three = coordinate(7,0);
+var four = coordinate(6,1);
+zShape.push(one);
+zShape.push(two);
+zShape.push(three);
+zShape.push(four);
+
+for(var i=0;i<zShape.length;i++){
+    drawingBlackRect(zShape[i]);
+}
+
+
+function rotateShape(shape,origin) {
+    var shapeChange = new Array();
+
+    for(var i in shape){
+        drawingGreyRect(shape[i]);
+    }
+    for(var i in shape){
+        var z = rotate(origin,shape[i]);
+        drawingBlackRect(z);
+        shapeChange.push(z);
+    }
+    return shapeChange;
+}
+
+$("#tst").click(function () {
+    zShape = rotateShape(zShape,four);
+
+});
+
