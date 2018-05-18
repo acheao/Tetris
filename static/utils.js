@@ -49,6 +49,16 @@ function drawingBlackRect(point) {
 
 }
 
+
+// 画黑色图形
+// drawing shape
+function drawingBLackShape(shape) {
+    for(var i in shape){
+        drawingBlackRect(shape[i]);
+    }
+}
+
+
 // 画灰色的方块
 // drawing grey Rect
 function drawingGreyRect(point) {
@@ -59,6 +69,14 @@ function drawingGreyRect(point) {
     canvas.fillStyle="#BFBFBF";
     canvas.fillRect(point.x*40+10,point.y*40+10,20,20);
 
+}
+
+// 画灰色图形
+// drawing grey shape
+function drawingGreyShape(shape) {
+    for(var  i in shape){
+        drawingGreyRect(shape[i]);
+    }
 }
 
 // 以点origin坐标为中心，顺时针转90度，返回该坐标
@@ -138,3 +156,34 @@ function judgeOverlap(moveRectArea,blackRectArea) {
     return flag;
 }
 
+
+// 移动方块
+// move rect
+function moveRect(shape,direction) {
+    drawingGreyShape(shape);
+    switch (direction) {
+        case ("left"):
+            for(var i in shape){
+                shape[i].x = shape[i].x - 1;
+            }
+            break;
+        case ("right"):
+            for(var i in shape){
+                shape[i].x = shape[i].x + 1;
+            }
+            break;
+        case ("up"):
+            for(var i in shape){
+                shape[i].y = shape[i].y - 1;
+            }
+            break;
+        case ("down"):
+            for(var i in shape){
+                shape[i].y = shape[i].y + 1;
+            }
+            break;
+    }
+    drawingBLackShape(shape);
+    return shape;
+
+}

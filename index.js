@@ -10,7 +10,7 @@ var blackRectArea = new Array();
 var moveRectArea = new Array();
 
 $("#tst").click(function () {
-    zShape = rotateShape(two,zShape);
+    zShape = rotateShape(zShape[1],zShape);
 });
 
 //画图形 drawing shape
@@ -29,3 +29,13 @@ for(var i=0;i<zShape.length;i++){
 }
 
 
+var i = 0;
+var c = setInterval(function () {
+    i = i+1;
+
+    moveRect(zShape,"down");
+    if(i == 13){
+        clearInterval(c);
+    }
+
+},1000);
