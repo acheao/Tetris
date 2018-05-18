@@ -39,3 +39,24 @@ var c = setInterval(function () {
     }
 
 },1000);
+
+$(document).keyup(function(event){
+    switch(event.keyCode) {
+        case 37:
+            moveRect(zShape,"left");
+            return;
+        case 39:
+            moveRect(zShape,"right");
+            return;
+        case 38:
+            moveRect(zShape,"up");
+            return;
+        case 40:
+            moveRect(zShape,"down");
+            return;
+        case 32:
+            zShape = rotateShape(zShape[1],zShape);
+            return;
+    }
+
+});
