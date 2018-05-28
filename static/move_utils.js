@@ -79,31 +79,56 @@ function judgeOverlap(moveRectArea,blackRectArea) {
 
 // 移动方块
 // move rect
-function moveRect(shape,direction) {
+function moveRect(shape,direction,origin) {
     drawingGreyShape(shape);
     switch (direction) {
         case ("left"):
             for(var i in shape){
                 shape[i].x = shape[i].x - 1;
             }
+            origin.x = origin.x-1;
             break;
         case ("right"):
             for(var i in shape){
                 shape[i].x = shape[i].x + 1;
             }
+            origin.x = origin.x+1;
             break;
         case ("up"):
             for(var i in shape){
                 shape[i].y = shape[i].y - 1;
             }
+            origin.y = origin.y-1;
             break;
         case ("down"):
             for(var i in shape){
                 shape[i].y = shape[i].y + 1;
             }
+            origin.y = origin.y + 1;
             break;
     }
     drawingBLackShape(shape);
     return shape;
+}
 
+//方块变换
+//change shape
+function changeShape(type,origin,shape) {
+    var falg = true;
+    if(type == 0){
+
+        if(falg){
+            shape = rotateShape(origin,shape);
+            falg = false;
+        }else {
+            shape = rotateShapeAnticlockWise(origin,shape);
+        }
+        return shape;
+
+    }else if(type == 1){
+        shape = rotateShape(origin,shape);
+        return shape;
+    }else{
+        return shape;
+    }
 }

@@ -30,10 +30,12 @@ for(var i=0;i<zShape.length;i++){
 
 
 var i = 0;
+var shapeobject = produceShape(coordinate(3,0));
 var c = setInterval(function () {
     i = i+1;
 
-    moveRect(zShape,"down");
+
+    moveRect(shapeobject.shape,"down",shapeobject.origin);
     if(i == 13){
         clearInterval(c);
     }
@@ -43,23 +45,22 @@ var c = setInterval(function () {
 $(document).keyup(function(event){
     switch(event.keyCode) {
         case 37:
-            moveRect(zShape,"left");
+            moveRect(shapeobject.shape,"left",shapeobject.origin);
             return;
         case 39:
-            moveRect(zShape,"right");
+            moveRect(shapeobject.shape,"right",shapeobject.origin);
             return;
         case 38:
-            moveRect(zShape,"up");
+            moveRect(shapeobject.shape,"up",shapeobject.origin);
             return;
         case 40:
-            moveRect(zShape,"down");
+            moveRect(shapeobject.shape,"down",shapeobject.origin);
             return;
         case 32:
-            zShape = rotateShape(zShape[1],zShape);
+
+            shapeobject.shape = changeShape(shapeobject.type,shapeobject.origin,shapeobject.shape);
+            // shapeobject.shape = rotateShape(shapeobject.shape[shapeobject.origin],shapeobject.shape);
             return;
     }
 
 });
-
-var point = coordinate(3,0);
-produceShape(point);
