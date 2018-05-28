@@ -60,3 +60,6 @@ $(document).keyup(function(event){
     }
 
 });
+
+var point = coordinate(3,0);
+produceShape(point);

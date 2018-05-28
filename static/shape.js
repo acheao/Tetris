@@ -1,11 +1,27 @@
-// 初始化形状
-// init shape
-var x = 3;
-var y = 0;
-var initPoint = coordinate(x,y);
+//随机产生形方块
+//Randomly generated shape
 
 function produceShape(initPoint) {
-    Math.floor(Math.random()*10);
+    var lll = Math.floor(Math.random()*7);
+    var shapeType = new Array();
+
+    switch(lll){
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;             
+    }
+
 
 }
 
