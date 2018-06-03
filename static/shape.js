@@ -4,6 +4,7 @@
 function produceShape(initPoint) {
     var shapeObject = new Object;
     var shapeNum = Math.floor(Math.random()*7);
+    shapeNum = 6;
     switch(shapeNum){
         case 0:
             var zShape = new Array();
@@ -14,6 +15,7 @@ function produceShape(initPoint) {
             shapeObject.shape = zShape;
             shapeObject.type = 0;
             shapeObject.origin = coordinate(initPoint.x+1,initPoint.y+1);
+            shapeObject.status = true;
             return shapeObject;
             break;
         case 1:
@@ -25,6 +27,7 @@ function produceShape(initPoint) {
             shapeObject.shape = againstZShape;
             shapeObject.type = 0;
             shapeObject.origin = coordinate(initPoint.x+1,initPoint.y+1);
+            shapeObject.status = true;
             return shapeObject;
             break;
         case 2:
@@ -35,7 +38,8 @@ function produceShape(initPoint) {
             mountainShape.push(coordinate(initPoint.x+2,initPoint.y+1));
             shapeObject.shape = mountainShape;
             shapeObject.type = 1;
-            shapeObject.origin = coordinate(initPoint.x+1,initPoint.y);
+            shapeObject.origin = coordinate(initPoint.x+1,initPoint.y+1);
+            shapeObject.status = true;
             return shapeObject;
             break;
         case 3:
@@ -44,9 +48,10 @@ function produceShape(initPoint) {
             squareShape.push(coordinate(initPoint.x+1,initPoint.y));
             squareShape.push(coordinate(initPoint.x,initPoint.y+1));
             squareShape.push(coordinate(initPoint.x+1,initPoint.y+1));
-            shapeObject.shape = mountainShape;
+            shapeObject.shape = squareShape;
             shapeObject.type = 2;
-            shapeObject.origin = null;
+            shapeObject.origin = coordinate(0,0);
+            shapeObject.status = true;
             return shapeObject;
             break;
         case 4:
@@ -57,7 +62,8 @@ function produceShape(initPoint) {
             LShape.push(coordinate(initPoint.x+1,initPoint.y+2));
             shapeObject.shape = LShape;
             shapeObject.type = 1;
-            shapeObject.origin = coordinate(initPoint.x+1,initPoint.y+1);
+            shapeObject.origin = coordinate(initPoint.x,initPoint.y+1);
+            shapeObject.status = true;
             return shapeObject;
             break;
         case 5:
@@ -68,7 +74,8 @@ function produceShape(initPoint) {
             againstLShape.push(coordinate(initPoint.x+1,initPoint.y+2));
             shapeObject.shape = againstLShape;
             shapeObject.type = 1;
-            shapeObject.origin = coordinate(initPoint.x,initPoint.y+1);
+            shapeObject.origin = coordinate(initPoint.x+1,initPoint.y+1);
+            shapeObject.status = true;
             return shapeObject;
             break;
         case 6:
@@ -80,6 +87,7 @@ function produceShape(initPoint) {
             shapeObject.shape = barShape;
             shapeObject.type = 0;
             shapeObject.origin = coordinate(initPoint.x+1,initPoint.y);
+            shapeObject.status = true;
             return shapeObject;
             break;
     }

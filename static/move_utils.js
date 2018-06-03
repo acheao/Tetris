@@ -113,22 +113,23 @@ function moveRect(shape,direction,origin) {
 
 //方块变换
 //change shape
-function changeShape(type,origin,shape) {
-    var falg = true;
-    if(type == 0){
+function changeShape(shapeObject) {
+    debugger;
+    if(shapeObject.type == 0){
 
-        if(falg){
-            shape = rotateShape(origin,shape);
-            falg = false;
+        if(shapeObject.status){
+            shapeObject.shape = rotateShape(shapeObject.origin,shapeObject.shape);
+            shapeObject.status = false;
         }else {
-            shape = rotateShapeAnticlockWise(origin,shape);
+            shapeObject.shape = rotateShapeAnticlockWise(shapeObject.origin,shapeObject.shape);
+            shapeObject.status = true;
         }
-        return shape;
+        return shapeObject;
 
-    }else if(type == 1){
-        shape = rotateShape(origin,shape);
-        return shape;
+    }else if(shapeObject.type == 1){
+        shapeObject.shape = rotateShape(shapeObject.origin,shapeObject.shape);
+        return shapeObject;
     }else{
-        return shape;
+        return shapeObject;
     }
 }

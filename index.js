@@ -24,12 +24,32 @@ zShape.push(two);
 zShape.push(three);
 zShape.push(four);
 
-for(var i=0;i<zShape.length;i++){
+
+var Lshape = produceShape(coordinate(3,0));
+
+/*for(var i=0;i<zShape.length;i++){
     drawingBlackRect(zShape[i]);
+
+}*/
+
+
+for(var i=0;i<Lshape.shape.length;i++){
+    drawingBlackRect(Lshape.shape[i]);
 }
 
 
-var i = 0;
+$(document).keyup(function (event) {
+    switch (event.keyCode){
+        case 32:
+            Lshape = changeShape(Lshape);
+            // shapeobject.shape = rotateShape(shapeobject.shape[shapeobject.origin],shapeobject.shape);
+            break;
+    }
+})
+
+
+
+/*var i = 0;
 var shapeobject = produceShape(coordinate(3,0));
 var c = setInterval(function () {
     i = i+1;
@@ -40,9 +60,9 @@ var c = setInterval(function () {
         clearInterval(c);
     }
 
-},1000);
+},1000);*/
 
-$(document).keyup(function(event){
+/*$(document).keyup(function(event){
     switch(event.keyCode) {
         case 37:
             moveRect(shapeobject.shape,"left",shapeobject.origin);
@@ -63,4 +83,4 @@ $(document).keyup(function(event){
             return;
     }
 
-});
+});*/
