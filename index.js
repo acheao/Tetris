@@ -41,8 +41,10 @@ for(var i=0;i<Lshape.shape.length;i++){
 $(document).keyup(function (event) {
     switch (event.keyCode){
         case 32:
-            Lshape = changeShape(Lshape);
-            // shapeobject.shape = rotateShape(shapeobject.shape[shapeobject.origin],shapeobject.shape);
+            changeShape(Lshape);
+            break;
+        case 37:
+            moveRect(Lshape,"left");
             break;
     }
 })

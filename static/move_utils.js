@@ -79,36 +79,37 @@ function judgeOverlap(moveRectArea,blackRectArea) {
 
 // 移动方块
 // move rect
-function moveRect(shape,direction,origin) {
-    drawingGreyShape(shape);
+function moveRect(shapeObject,direction) {
+    debugger;
+    drawingGreyShape(shapeObject.shape);
     switch (direction) {
         case ("left"):
-            for(var i in shape){
-                shape[i].x = shape[i].x - 1;
+            for(var i in shapeObject.shape){
+                shapeObject.shape[i].x = shapeObject.shape[i].x - 1;
             }
-            origin.x = origin.x-1;
+            shapeObject.origin.x = shapeObject.origin.x-1;
             break;
         case ("right"):
-            for(var i in shape){
-                shape[i].x = shape[i].x + 1;
+            for(var i in shapeObject.shape){
+                shapeObject.shape[i].x = shapeObject.shape[i].x + 1;
             }
-            origin.x = origin.x+1;
+            shapeObject.origin.x = shapeObject.origin.x+1;
             break;
         case ("up"):
-            for(var i in shape){
-                shape[i].y = shape[i].y - 1;
+            for(var i in shapeObject.shape){
+                shapeObject.shape[i].y = shapeObject.shape[i].y - 1;
             }
-            origin.y = origin.y-1;
+            shapeObject.origin.y = shapeObject.origin.y-1;
             break;
         case ("down"):
-            for(var i in shape){
-                shape[i].y = shape[i].y + 1;
+            for(var i in shapeObject.shape){
+                shapeObject.shape[i].y = shapeObject.shape[i].y + 1;
             }
-            origin.y = origin.y + 1;
+            shapeObject.origin.y = shapeObject.origin.y + 1;
             break;
     }
-    drawingBLackShape(shape);
-    return shape;
+    drawingBLackShape(shapeObject.shape);
+    return shapeObject;
 }
 
 //方块变换
