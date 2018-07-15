@@ -46,6 +46,15 @@ $(document).keyup(function (event) {
         case 37:
             moveRect(Lshape,"left");
             break;
+        case 38:
+            moveRect(Lshape,"up");
+            break;
+        case 39:
+            moveRect(Lshape,"right");
+            break;
+        case 40:
+            moveRect(Lshape,"down");
+            break;
     }
 })
 
