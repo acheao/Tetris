@@ -4,7 +4,7 @@
 function produceShape(initPoint) {
     var shapeObject = new Object;
     var shapeNum = Math.floor(Math.random()*7);
-    shapeNum = 2;
+    //shapeNum = 6;
     switch(shapeNum){
         case 0:
             var zShape = new Array();

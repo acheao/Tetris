@@ -7,25 +7,11 @@ $("#tetris").height();
 drawingBackgroud();
 
 var blackRectArea = new Array();
-var moveRectArea = new Array();
-
-$("#tst").click(function () {
-    zShape = rotateShape(zShape[1],zShape);
-});
-
-//画图形 drawing shape
-var zShape = new Array();
-var one = coordinate(3,0);
-var two = coordinate(4,0);
-var three = coordinate(5,0);
-var four = coordinate(4,1);
-zShape.push(one);
-zShape.push(two);
-zShape.push(three);
-zShape.push(four);
 
 
-var Lshape = produceShape(coordinate(3,0));
+var moveRectArea = produceShape(coordinate(3,0));
+
+/*var Lshape = produceShape(coordinate(3,0));*/
 
 /*for(var i=0;i<zShape.length;i++){
     drawingBlackRect(zShape[i]);
@@ -33,45 +19,44 @@ var Lshape = produceShape(coordinate(3,0));
 }*/
 
 
-for(var i=0;i<Lshape.shape.length;i++){
+/*for(var i=0;i<Lshape.shape.length;i++){
     drawingBlackRect(Lshape.shape[i]);
-}
+}*/
 
 
 $(document).keyup(function (event) {
     switch (event.keyCode){
         case 32:
-            changeShape(Lshape);
+            changeShape(moveRectArea);
             break;
         case 37:
-            moveRect(Lshape,"left");
+            moveRect(moveRectArea,"left");
             break;
         case 38:
-            moveRect(Lshape,"up");
+            moveRect(moveRectArea,"up");
             break;
         case 39:
-            moveRect(Lshape,"right");
+            moveRect(moveRectArea,"right");
             break;
         case 40:
-            moveRect(Lshape,"down");
+            moveRect(moveRectArea,"down");
             break;
     }
 })
 
 
 
-/*var i = 0;
-var shapeobject = produceShape(coordinate(3,0));
-var c = setInterval(function () {
+var i = 0;
+var Timer = setInterval(function () {
     i = i+1;
 
-
-    moveRect(shapeobject.shape,"down",shapeobject.origin);
+    debugger;
+    moveRect(moveRectArea,"down");
     if(i == 13){
-        clearInterval(c);
+        clearInterval(Timer);
     }
 
-},1000);*/
+},1000);
 
 /*$(document).keyup(function(event){
     switch(event.keyCode) {
