@@ -9,7 +9,7 @@ drawingBackgroud();
 var blackRectArea = new Array();
 
 
-var moveRectArea = produceShape(coordinate(3,0));
+var moveRectArea = produceShape(coordinate(3,-1));
 
 /*var Lshape = produceShape(coordinate(3,0));*/
 
@@ -52,11 +52,11 @@ var Timer = setInterval(function () {
 
     debugger;
     moveRect(moveRectArea,"down");
-    if(i == 13){
+    if(!checkBoundary(moveRectArea)){
         clearInterval(Timer);
     }
 
-},1000);
+},100);
 
 /*$(document).keyup(function(event){
     switch(event.keyCode) {

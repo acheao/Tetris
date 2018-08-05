@@ -77,3 +77,28 @@ function drawingGreyShape(shape) {
     }
 }
 
+//越界校验
+//checking Crossing boundary
+function checkBoundary(shapeObject) {
+    var leftCross = 0;
+    var rightCross = 0;
+    var downCross = 0;
+    for(var i=0;i<shapeObject.shape.length;i++){
+        if(shapeObject.shape[i].x<1){
+            leftCross++;
+        }
+        if(shapeObject.shape[i].x>8){
+            rightCross++;
+        }
+        if(shapeObject.shape[i].y>13){
+            downCross++;
+        }
+    }
+    if(leftCross+rightCross+downCross>0){
+        return false;
+    }else{
+        return true;
+    }
+
+}
+

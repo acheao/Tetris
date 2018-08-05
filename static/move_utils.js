@@ -63,7 +63,6 @@ function judgeBorder(shape) {
 // 重叠判断
 // shape overlap judge
 function judgeOverlap(moveRectArea,blackRectArea) {
-    debugger;
     var flag = false;
     for(var i in moveRectArea){
         for(var j in blackRectArea){
@@ -80,7 +79,6 @@ function judgeOverlap(moveRectArea,blackRectArea) {
 // 移动方块
 // move rect
 function moveRect(shapeObject,direction) {
-    debugger;
     drawingGreyShape(shapeObject.shape);
     switch (direction) {
         case ("left"):
