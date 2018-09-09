@@ -46,7 +46,7 @@ var i = 0;
 var Timer = setInterval(function () {
     i = i+1;
 
-    // moveRect(moveRectArea,"down");
+    moveRect(moveRectArea,"down");
     if(!checkBoundary(moveRectArea)){
         clearInterval(Timer);
     }
