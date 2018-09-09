@@ -77,7 +77,7 @@ function drawingGreyShape(shape) {
     }
 }
 
-//方块固定校验
+//方块触底校验
 function checkBoundary(shapeObject) {
     var downCross = 0;
     for(var i=0;i<shapeObject.shape.length;i++){
@@ -93,12 +93,25 @@ function checkBoundary(shapeObject) {
 
 }
 
-// 越界图形数组判断
-// cross the border judge
-function judgeBorder(shape) {
+// 左越界图形数组判断
+//judge does cross the left border
+function judgeLeftBorder(obj) {
     var returnFlag = false;
-    for(var i in shape){
-        if(shape[i].x<0 || shape[i].x>=horizontalNum || shape[i].y<0 || shape[i]>=verticalNum){
+    for(var i in obj.shape){
+        if(obj.shape[i].x<=0){
+            returnFlag = true;
+        }
+    }
+    return returnFlag;
+}
+
+
+// 右越界图形数组判断
+//judge does cross the right border
+function judgeRightBorder(obj) {
+    var returnFlag = false;
+    for(var i in obj.shape){
+        if(obj.shape[i].x>=horizontalNum-1){
             returnFlag = true;
         }
     }

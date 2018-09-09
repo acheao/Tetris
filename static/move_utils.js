@@ -86,7 +86,6 @@ function moveRect(shapeObject,direction) {
 //方块变换
 //change shape
 function changeShape(shapeObject) {
-    debugger;
     if(shapeObject.type == 0){
 
         if(shapeObject.status){
