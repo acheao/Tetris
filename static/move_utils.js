@@ -48,33 +48,6 @@ function rotateShapeAnticlockWise(origin,shape) {
     return shapeChange;
 }
 
-// 越界图形数组判断
-// cross the border judge
-function judgeBorder(shape) {
-    var returnFlag = false;
-    for(var i in shape){
-        if(shape[i].x<0 || shape[i].x>=horizontalNum || shape[i].y<0 || shape[i]>=verticalNum){
-            returnFlag = true;
-        }
-    }
-    return returnFlag;
-}
-
-// 重叠判断
-// shape overlap judge
-function judgeOverlap(moveRectArea,blackRectArea) {
-    var flag = false;
-    for(var i in moveRectArea){
-        for(var j in blackRectArea){
-            if(moveRectArea[i].x == blackRectArea[j].x && moveRectArea[i].y == blackRectArea[j].y){
-                flag = true;
-            }
-        }
-    }
-    return flag;
-}
-
-
 
 // 移动方块
 // move rect

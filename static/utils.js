@@ -77,28 +77,46 @@ function drawingGreyShape(shape) {
     }
 }
 
-//越界校验
-//checking Crossing boundary
+//方块固定校验
 function checkBoundary(shapeObject) {
-    var leftCross = 0;
-    var rightCross = 0;
     var downCross = 0;
     for(var i=0;i<shapeObject.shape.length;i++){
-        if(shapeObject.shape[i].x<1){
-            leftCross++;
-        }
-        if(shapeObject.shape[i].x>8){
-            rightCross++;
-        }
         if(shapeObject.shape[i].y>13){
             downCross++;
         }
     }
-    if(leftCross+rightCross+downCross>0){
+    if(downCross>0){
         return false;
     }else{
         return true;
     }
 
 }
+
+// 越界图形数组判断
+// cross the border judge
+function judgeBorder(shape) {
+    var returnFlag = false;
+    for(var i in shape){
+        if(shape[i].x<0 || shape[i].x>=horizontalNum || shape[i].y<0 || shape[i]>=verticalNum){
+            returnFlag = true;
+        }
+    }
+    return returnFlag;
+}
+
+// 重叠判断
+// shape overlap judge
+function judgeOverlap(moveRectArea,blackRectArea) {
+    var flag = false;
+    for(var i in moveRectArea){
+        for(var j in blackRectArea){
+            if(moveRectArea[i].x == blackRectArea[j].x && moveRectArea[i].y == blackRectArea[j].y){
+                flag = true;
+            }
+        }
+    }
+    return flag;
+}
+
 

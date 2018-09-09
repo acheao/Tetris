@@ -27,7 +27,9 @@ var moveRectArea = produceShape(coordinate(3,-1));
 $(document).keyup(function (event) {
     switch (event.keyCode){
         case 32:
-            changeShape(moveRectArea);
+            if(checkBoundary(moveRectArea)){
+                changeShape(moveRectArea);
+            }
             break;
         case 37:
             moveRect(moveRectArea,"left");
@@ -39,7 +41,9 @@ $(document).keyup(function (event) {
             moveRect(moveRectArea,"right");
             break;
         case 40:
-            moveRect(moveRectArea,"down");
+            if(checkBoundary(moveRectArea)){
+                moveRect(moveRectArea,"down");
+            }
             break;
     }
 })
@@ -56,7 +60,7 @@ var Timer = setInterval(function () {
         clearInterval(Timer);
     }
 
-},100);
+},1000);
 
 /*$(document).keyup(function(event){
     switch(event.keyCode) {
