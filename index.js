@@ -1,4 +1,5 @@
-var c = document.getElementById("myCanvas");
+//取得cancas
+var c = document.getElementById("tetrisCanvas");
 var canvas = c.getContext("2d");
 c.height = 600;
 c.width = 400;
